@@ -739,6 +739,8 @@ static int const RCTVideoUnset = -1;
       self.onVideoBuffer(@{@"isBuffering": @(NO), @"target": self.reactTag});
     } else if ([keyPath isEqualToString:loadedTimeRangesKeyPath]) {
       if (_bufferConfig) {
+        NSLog(@"got buffer config");
+        NSLog(_bufferConfig[@"bufferForPlaybackMs"]);
         double buffered = [[self calculatePlayableDuration] doubleValue] - [[NSNumber numberWithFloat:CMTimeGetSeconds(_player.currentTime)] doubleValue];
         double threshold = 0.0;
         if (_bufferConfig[@"bufferForPlaybackAfterRebufferMs"]) {
