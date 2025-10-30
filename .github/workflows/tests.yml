@@ -151,6 +151,9 @@ jobs:
       - name: Install npm dependencies (bun)
         run: bun install
 
+      - name: Install Watchman
+        run: brew install watchman
+
       # Step 2: iOS build optimization with caching
       - name: Restore app from cache
         id: cache-app-restore
